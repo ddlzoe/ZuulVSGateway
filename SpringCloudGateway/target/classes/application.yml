@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: test_route
+          uri: http://localhost:8080
+          predicates:
+          - Method=GET
+
+server:
+  port: 8081

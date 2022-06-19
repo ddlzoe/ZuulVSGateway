@@ -1,0 +1,23 @@
+server:
+  port: 8082
+  tomcat:
+    threads:
+      max: 500
+
+zuul:
+  ribbonIsolationStrategy: SEMAPHORE
+  routes:
+    demo:
+      path: /**
+      url: http://localhost:8080
+  host:
+    connect-timeout-millis: 20000
+    socket-timeout-millis: 60000
+    max-per-route-connections: 200
+    max-total-connections: 300
+
+spring:
+  cloud:
+    circuitbreaker:
+      hystrix:
+        enabled: false
